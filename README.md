@@ -21,7 +21,7 @@ What the thread actually does is this: it waits for data from the peripheral and
 * RFC 3267 for AMR
 * RFC 3640 for AAC
 
-Therefore, depending on the nature of the data, the packetizer will be one out of the four packetizers implemented in the rtp package of libstreaming: **H264Packetizer.java**, **H263Packetizer.java**, **AACADTSPacketizer.java** or **AMRNBPacketizer.java**. I took the time to add lots of comments in those files so if you are looking for a basic implementation of one of the RFC mentionned above, they might come in handy.
+Therefore, depending on the nature of the data, the packetizer will be one out of the four packetizers implemented in the rtp package of libstreaming: **H264Packetizer.java**, **H263Packetizer.java**, **AACADTSPacketizer.java** or **AMRNBPacketizer.java**. I took the time to add lots of comments in those files so if you are looking for a basic implementation of one of the RFC mentioned above, they might come in handy.
 
 RTCP packets are also sent by this thread since version 2.0 of libstreaming. Only Sender Reports are implemented.
 
@@ -57,7 +57,7 @@ String sdp = session.getSessionDescription();
 session.start();
 ```
 
-The **SessionBuilder** simply facilitates the creation of **Session** objects. The call to **setSurfaceHolder** is needed for video streaming, that should not come up as a surprise since Android requires a valid surface for recording video (It's an ennoying limitation of the **MediaRecorder** API). The call to **setContext** is optional but recommanded, it allows **H264Stream** objects and **AACStream** objects to store and recover data in the **SharedPreferences** of your app. Check the implementation of those two classes to find out exactly what data are stored. 
+The **SessionBuilder** simply facilitates the creation of **Session** objects. The call to **setSurfaceHolder** is needed for video streaming, that should not come up as a surprise since Android requires a valid surface for recording video (It's an annoying limitation of the **MediaRecorder** API). The call to **setContext** is optional but recommended, it allows **H264Stream** objects and **AACStream** objects to store and recover data in the **SharedPreferences** of your app. Check the implementation of those two classes to find out exactly what data are stored. 
 
 **Session** objects represents a streaming session to some peer. It contains one or more **Stream** objects that are started (resp. stopped) when the start() (resp. stop()) method is invoked. The method **setDestination** allows you to specify the ip address to which RTP and RTCP packets will be sent. The method **getSessionDescription** will return a SDP of the session in the form of a String.
 
